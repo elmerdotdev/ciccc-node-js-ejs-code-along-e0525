@@ -1,0 +1,27 @@
+<%- include ('partials/header', { title }) %>
+
+  <main>
+    <h1><%= title %></h1>
+    <ul>
+      <% todos.forEach(todo => { %>
+
+        <li>
+          <%= todo.task %> - <%= todo.completed ? "Completed" : "Not Completed" %>
+          <button onclick="updateTodo('<%= todo.id %>')">
+            <%= todo.completed ? 'Mark Incomplete' : 'Mark Complete' %>
+          </button>
+          <button onclick="deleteTodo('<%= todo.id %>')">Delete</button>
+        </li>
+
+      <% }) %>
+    </ul>
+
+    <form action="/todos/add" method="POST">
+      <label>
+        Task: <input type="text" name="task">
+      </label>
+      <button type="submit">Add To Do</button>
+    </form>
+  </main>
+
+<%- include ('partials/footer') %>

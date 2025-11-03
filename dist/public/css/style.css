@@ -1,4 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: yellow;
-  margin: 1rem;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  padding: 1rem;
+}
+
+header menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+main,
+footer {
+  padding: 1rem;
 }

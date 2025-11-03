@@ -8,14 +8,18 @@ const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const page_routes_1 = __importDefault(require("./routes/page.routes"));
+const todo_routes_1 = __importDefault(require("./routes/todo.routes"));
 // Create server
 const app = (0, express_1.default)();
 // Set view engine to EJS
 app.set('view engine', 'EJS');
 app.set('views', path_1.default.join(__dirname, '../src/views')); // Tell Express where to look for the EJS pages
 // Middleware
+app.use(express_1.default.json()); // Allow and parse JSON body
 app.use(express_1.default.static(path_1.default.join(__dirname, 'public'))); // Set the public directory
+app.use(express_1.default.urlencoded({ extended: true })); // Allow form submission
 // Routes
+app.use('/todos', todo_routes_1.default);
 app.use('/', page_routes_1.default);
 // Fallback / 404
 app.use((req, res, next) => {
