@@ -1,0 +1,12 @@
+<%- include('partials/header', { title }) %>
+<%
+  const description = "The quick brown fox jumps over the lazy dog."
+%>
+
+  <main>
+    <%# Home page content %>
+    <h1><%= title %> - <%= year %></h1>
+    <p><%= description %></p>
+  </main>
+
+<%- include('partials/footer') %>
